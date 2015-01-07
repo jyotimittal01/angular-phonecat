@@ -17,10 +17,6 @@ Phones = {
         }
     },
 
-    get: function(){
-        return browser.get('app/index.html#/phones');
-    },
-
     _phonesCount: function(){
         return this.elements._phoneList().count();
     },
