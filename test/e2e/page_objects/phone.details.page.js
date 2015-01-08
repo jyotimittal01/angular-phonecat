@@ -1,4 +1,4 @@
-Phones = {
+PhonesDetails = {
     elements:{
         _name: function(){
             return element(by.binding('phone.name'));
@@ -9,7 +9,7 @@ Phones = {
         },
 
         _thumbnail: function(index){
-            return element(by.css('.phone-thumbs li:nth-child(' + index +') img'));
+            return element(by.css('.phone-thumbs li:nth-child(' + index + ') img'));
         }
     },
 
@@ -26,4 +26,4 @@ Phones = {
     }
 };
 
-module.exports = Phones;
+module.exports = PhonesDetails;
