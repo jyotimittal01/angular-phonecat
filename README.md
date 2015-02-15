@@ -1,3 +1,46 @@
+# Protractor: Using the Page Object Model
+
+## What is Protractor?
+
+Protractor is an end-to-end (e2e) test automation framework for AngularJS application. It is an open source Node.js program built on top of WebDriverJS originally developed by a team at Google. Test cases written in Protractor run in the browser simulating the actions of a real user. An e2e test written in Protractor makes sure your application behaves as expected.
+
+## Challenge: Code Duplication
+
+There is always duplication in test cases. For instance login, find, and logout are clearly duplicated in the following two test cases:
+
+Test case 1: login to the website, find an item, add it to my wish list and logout.
+
+Test case 2: login to the website, find an item, add it to cart, purchase and logout.
+
+Duplicate test cases result in code duplication. An e2e test suite with code duplication is difficult to maintain and requires costly modifications. In this tutorial, we will implement a page object design best practice for Protractor to minimize code duplication, make tests more readable, reduce the cost of modification, and improve maintainability.  
+
+The most important concept here is to separate the abstraction of the test object (the page) and the test script (the spec). Hence, a single test object can be used multiple times by test scripts without rewriting it.
+
+## Using the PhoneCat application
+
+We will use the popular AngularJS PhoneCat application to demonstrate how Protractor tests could make use of the page object design pattern to create simple and maintainable e2e test automation.
+
+A concise instruction set, on how to setup the PhoneCat application in your local machine, is at the end of this post.
+
+## Abstraction: Separation of Test Object from Test Script
+
+The PhoneCat app has the ‘phones list view’ page where all available phones are listed. A user can search or change the order of the listed phones on the page. When selecting a phone from the list, a user navigates to the ‘phone details view’ page, where more details about the selected phone are included.
+
+In line with the page object design pattern best practice: the PhoneCat application has two test objects, the phones list view page and the phone details view page. Each of the pages should be self-contained, meaning they should provide all the locators and functions required to interact with each page. For example, the phones list view page should have a locator for the search input box and a function to search.
+
+The image below shows the separation of the test object (page object files) from the test script (spec files). The spec files under the spec folder contain only test scripts. The page object files under the page object folder contain page specific locators and functions.
+
+## Test Object (Page Object)
+
+The PhoneCat application have the phones list page and the phone details page. The following two page object files provide the locators and functions required to interact with these pages. 
+
+
+
+
+
+
+
+
 # AngularJS Phone Catalog Tutorial Application
 
 ## Overview
