@@ -1,4 +1,4 @@
-The following article orignally apears at [dev9 website] (http://www.dev9.com/article/2015/1/protractor-using-the-page-object-model) on January 15th 2015.
+The following article orignally appears at [dev9 website] (http://www.dev9.com/article/2015/1/protractor-using-the-page-object-model) on January 15th 2015 by Girma Nigusse
 
 # Protractor: Using the Page Object Model
 
@@ -32,7 +32,7 @@ In line with the page object design pattern best practice: the PhoneCat applicat
 
 The image below shows the separation of the test object (page object files) from the test script (spec files). The spec files under the spec folder contain only test scripts. The page object files under the page object folder contain page specific locators and functions.
 
-## Test Object (Page Object)
+### Test Object (Page Object)
 
 The PhoneCat application have the phones list page and the phone details page. The following two page object files provide the locators and functions required to interact with these pages. 
 
@@ -85,227 +85,148 @@ Phones = {
 };
 
 module.exports = Phones;
-
-
 ```
 
-
-
-
-
-
-
-
-# AngularJS Phone Catalog Tutorial Application
-
-## Overview
-
-This application takes the developer through the process of building a web-application using
-angular. The application is loosely based on the **Google Phone Gallery**, which no longer
-exists. Here is a historical reference: [Google Phone Gallery on WayBack](http://web.archive.org/web/20131215082038/http://www.android.com/devices/).
-
-Each tagged commit is a separate lesson teaching a single aspect of angular.
-
-The full tutorial can be found at http://docs.angularjs.org/tutorial.
-
-## Prerequisites
-
-### Git
-
-- A good place to learn about setting up git is [here][git-github].
-- Git [home][git-home] (download, documentation).
-
-### Node.js and Tools
-
-- Get [Node.js][node-download].
-- Install the tool dependencies (`npm install`).
-
-
-## Workings of the application
-
-- The application filesystem layout structure is based on the [angular-seed] project.
-- There is no dynamic backend (no application server) for this application. Instead we fake the
-  application server by fetching static json files.
-- Read the Development section at the end to familiarize yourself with running and developing
-  an angular application.
-
-## Commits / Tutorial Outline
-
-You can check out any point of the tutorial using
-    git checkout step-?
-
-To see the changes which between any two lessons use the git diff command.
-    git diff step-?..step-?
-
-### step-0
-
-- Add ngApp directive to bootstrap the app.
-- Add simple template with an expression.
-
-
-### step-1
-
-- Add static html list with two phones into index.html. We will convert this static page into
-  dynamic one with the help of angular.
-
-
-### step-2
-
-- Convert the static html list into dynamic one by:
-  - creating `PhoneListCtrl` controller for the application.
-  - extracting the data from HTML, moving it into the controller as an in-memory dataset.
-  - converting the static HTML document into an Angular template with the use of the `ngRepeat`
-    directive which iterates over the dataset of phones.
-    `ngRepeat` clones its contents for each instance in the dataset and renders it into the view.
-- Add a simple unit test to show off how to write tests and run them with Karma.
-
-
-### step-3
-
-
-- Add a search box to demonstrate how:
-  - the data-binding works on input fields.
-  - to use the `filter` filter.
-  - `ngRepeat` automatically shrinks and grows the number of phones in the view.
-- Add an end-to-end test to:
-  - show how end-to-end tests are written and how to run them with Protractor.
-  - prove that the search box and the repeater are correctly wired together.
-
-
-### step-4
-
-- Add `age` property to each phone in the data model.
-- Add a `<select>` input to change the phone list order.
-- Override the default order value in the controller.
-- Add unit and e2e tests for this feature.
-
-### step-5
-
-- Replace the in-memory dataset with data loaded from the server (in
-  the form of static `phones.json` file).
-  - The `phones.json` file is loaded using the `$http` service.
-- Demonstrate the use of [services][service] and [dependency injection][DI].
-  - The [$http] service is injected into the controller through [dependency injection][DI].
-
-
-### step-6
-
-- Add phone images and links to new pages that show the phone details.
-- Add end2end tests that verify the links to the detail pages.
-- Add CSS to style the page just a notch.
-
-
-### step-7
-
-- Introduce the [$route] service which allows binding URLs for deep-linking with
-  views:
-  - Create `PhoneCatCtrl` which governs the entire app and contains $route configuration.
-  - Install `angular-route` using bower and load the `ngRoute` module.
-    (Be sure to run npm install again.)
-  - Copy route parameters to root scope `params` property for access in sub controllers.
-  - Replace the contents of `index.html` with the `ngView` directive, which will display the partial
-    template of the current route.
-
-- Create phone list route:
-  - Map `/phones` route to `PhoneListCtrl` and `partials/phones-list.html`.
-  - Preserve existing `PhoneListCtrl` controller.
-  - Move existing html from `index.html` to `partials/phone-list.html`.
-- Create phone details route:
-  - Map `/phones/<phone-id>` route to `PhoneDetailCtrl` and `partials/phones-detail.html`.
-  - Create empty placeholder `PhoneDetailsCtrl` controller.
-
-
-### step-8
-
-
-- Implement `PhoneDetailCtrl` controller to fetch the details for a specific phone from a JSON file
-  using `$http` service.
-- Update the template for the phone detailed view.
-- Add CSS to make the phone details page look "pretty".
-
-
-### step-9
-
-- Add custom `checkmark` filter.
-- Update phone detail template to use `checkmark` filter.
-- Add unit test for the filter.
-
-### step-10
-
-In the phone detail view, clicking on a thumbnail image, changes the main phone image to be the
-large version of the thumbnail image.
-
-- Define `mainImageUrl` model variable in the `PhoneDetailCtrl` and set its default value.
-- Create `setImage()` controller method to change `mainImageUrl`.
-- Register an expression with the `ngClick` directive on thumb images to set the main image, using
-  `setImage()`.
-- Add e2e tests for this feature.
-- Add CSS to change the mouse cursor when user points at thumnail images.
-
-
-### step-11
-
-- Replace [$http] with [$resource].
-- Created a custom `Phone` service that represents the `$resource` client.
-
-
-### step-12
-
-- Add animations to the application:
-  - Animate changes to the phone list, adding, removing and reordering phones.
-  - Animate changes to the main phone image in the detail view.
-
-
-## Development with angular-phonecat
-
-The following docs describe how you can test and develop further this application.
-
-
-### Installing dependencies
-
-The application relies upon various node.js tools, such as Bower, Karma and Protractor.  You can
-install these by running:
-
-```
-npm install
+*Listing 1: phones.page.js*
+
+```javascript
+PhonesDetails = {
+    elements:{
+        _name: function(){
+            return element(by.binding('phone.name'));
+        },
+
+        _image: function(){
+            return element(by.css('img.phone.active'));
+        },
+
+        _thumbnail: function(index){
+            return element(by.css('.phone-thumbs li:nth-child(' + index + ') img'));
+        }
+    },
+
+    _getName: function(){
+        return this.elements._name().getText();
+    },
+
+    _getImage: function(){
+        return this.elements._image().getAttribute('src');
+    },
+
+    clickThumbnail: function(index){
+        this.elements._thumbnail(index).click();
+    }
+};
+
+module.exports = PhonesDetails;
 ```
 
-This will also run bower, which will download the angular files needed for the current step of the
-tutorial.
+*Listing 2: phone.details.page.js*
 
-Most of the scripts described below will run this automatically but it doesn't do any harm to run
-it whenever you like.
+### Test Script (spec) 
 
-### Running the app during development
+The test script can now make use of the page object files. All the functions required to interact with the page (the test object) are encapsulated in the page object and the test scripts are more readable and concise.
 
-- Run `npm start`
-- navigate your browser to `http://localhost:8000/app/index.html` to see the app running in your browser.
+```javascript
+describe('Phone list view', function(){
 
-### Running unit tests
+    var phones = require('../page_objects/phones.page.js');
 
-We recommend using [Jasmine][jasmine] and [Karma][karma] for your unit tests/specs, but you are free
-to use whatever works for you.
+    beforeEach(function() {
+        browser.get('app/index.html#/phones');
+    })
 
-- Start Karma with `npm test`
-  - A browser will start and connect to the Karma server. Chrome is the default browser, others can
-  be captured by loading the same url as the one in Chrome or by changing the `test/karma.conf.js`
-  file.
-- Karma will sit and watch your application and test JavaScript files. To run or re-run tests just
-  change any of your these files.
+    it('should filter the phone list as a user types into the search box', function() {
+        expect(phones._phonesCount()).toBe(20);
+
+        phones.searchFor('nexus');
+        expect(phones._phonesCount()).toBe(1);
+
+        phones.clearSearch();
+        phones.searchFor('motorola');
+        expect(phones._phonesCount()).toBe(8);
+    });
+
+    it('should be possible to control phone order via the drop down select box', function() {
+        phones.clearSearch();
+        phones.searchFor('tablet'); //let's narrow the dataset to make the test assertions shorter
+
+        expect(phones._getNames()).toEqual([
+            "Motorola XOOM\u2122 with Wi-Fi",
+            "MOTOROLA XOOM\u2122"
+        ]);
+
+        phones.sortItBy('name');
+
+        expect(phones._getNames()).toEqual([
+            "MOTOROLA XOOM\u2122",
+            "Motorola XOOM\u2122 with Wi-Fi"
+        ]);
+    });
+
+    it('should render phone specific links', function() {
+        phones.clearSearch();
+        phones.searchFor('nexus');
+        phones.selectFirstPhone();
+        browser.getLocationAbsUrl().then(function(url) {
+            expect(url.split('#')[1]).toBe('/phones/nexus-s');
+        });
+    });
+});
+```
+
+*Listing 3: phones.spec.js*
+
+```javascript
+describe('Phone detail view', function(){
+
+    var phones = require('../page_objects/phones.page.js'),
+        phoneDetails;
+
+    beforeEach(function() {
+        browser.get('app/index.html#/phnes');
+        phones.searchFor('nexus');
+        phoneDetails = phones.selectFirstPhone();
+    });
 
 
-### End to end testing
+    it('should display nexus-s page', function() {
+        expect(phoneDetails._getName()).toBe('Nexus S');
+    });
 
-We recommend using [Jasmine][jasmine] and [Protractor][protractor] for end-to-end testing.
+    it('should display the first phone image as the main phone image', function() {
+        expect(phoneDetails._getImage()).toMatch(/img\/phones\/nexus-s.0.jpg/);
+    });
 
-Requires a webserver that serves the application. See Running the app during development, above.
+    it('should swap main image if a thumbnail image is clicked on', function() {
+        phoneDetails.clickThumbnail(3);
+        expect(phoneDetails._getImage()).toMatch(/img\/phones\/nexus-s.2.jpg/);
 
-- Serve the application: run `npm start`.
-- In a separate console run the end2end tests: `npm run protractor`. Protractor will execute the
-  end2end test scripts against the web application itself.
-  - The configuration is set up to run the tests on Chrome directly. If you want to run against
-    other browsers then you must install the webDriver, `npm run update-webdriver`, and modify the
-  configuration at `test/protractor-conf.js`.
+        phoneDetails.clickThumbnail(1);
+        expect(phoneDetails._getImage()).toMatch(/img\/phones\/nexus-s.0.jpg/);
+    });
+});
+```
+
+*Listing 4: phone.details.spec.js*
+
+In conclusion, when a page object design pattern is properly used in a Protractor test automation, it will make an e2e test easy to maintain and reduce code duplication.
+
+
+### Running the test
+1. Install Git and Node.js
+2. Clone the angular-phonecat repository, $ git clone --depth=14 https://github.com/xgirma/angular-phonecat.git
+3. Change your current directory to angular-phonecat ($ cd angular-phonecat). Download the tool dependencies by running ($ npm install).
+4. Use npm helper scripts to start a local development web-server($ npm start). This will create a local webserver in your machine, listening to port 8000. Browse the application at http://localhost:8000/app/index.html
+5. To install the drivers needed by Protractor ($ npm run update-webdriver) and to run the Protractor end to end tests ($ npm run protractor).
+
+Refer to the AngularJS [tutorial site] (https://docs.angularjs.org/tutorial/step_00) for complete instructions. Final note: If you want to try the code samples given in this tutorial,  besides creating folders, the page object files, and the spec files, you need to change the path to the the new spec files in protractor-cof.js file. Simply change **spec:[‘e2e/*.js’]** to **spec:[‘e2e/spec/*.spec.js’]** or to a path where you put the spec files.
+
+### Related Works
+
+1. [Using Page Objects to Organize Tests] (https://github.com/angular/protractor/blob/master/docs/page-objects.md)
+2. [Using Page Objects to Overcome Protractor's Shortcomings] (http://www.thoughtworks.com/insights/blog/using-page-objects-overcome-protractors-shortcomings)
+3. [Getting Started with Protractor and Page Objects for AngularJS E2E Testing] (https://teamgaslight.com/blog/getting-started-with-protractor-and-page-objects-for-angularjs-e2e-testing)
 
 ## Application Directory Layout
 
@@ -334,29 +255,15 @@ Requires a webserver that serves the application. See Running the app during dev
       karma.conf.js        --> config file for running unit tests with Karma
       protractor-conf.js   --> config file for running e2e tests with Protractor
       e2e/
+        page_objects/
+            phone.details.page.js   --> end-to-end page object
+            phones.page.js          --> end-to-end page object
+        spec/
+            phone.details.spec.js   --> end-to-end spec
+            phones.spec.js          --> end-to-end spec
         scenarios.js       --> end-to-end specs
       unit/             --> unit level specs/tests
         controllersSpec.js --> specs for controllers
         directivesSpec.js  --> specs for directives
         filtersSpec.js     --> specs for filters
         servicesSpec.js    --> specs for services
-
-## Contact
-
-For more information on AngularJS please check out http://angularjs.org/
-
-[7 Zip]: http://www.7-zip.org/
-[angular-seed]: https://github.com/angular/angular-seed
-[DI]: http://docs.angularjs.org/guide/di
-[directive]: http://docs.angularjs.org/guide/directive
-[filterFilter]: http://docs.angularjs.org/api/ng/filter/filter
-[git-home]: http://git-scm.com
-[git-github]: http://help.github.com/set-up-git-redirect
-[ngRepeat]: http://docs.angularjs.org/api/ng/directive/ngRepeat
-[ngView]: http://docs.angularjs.org/api/ngRoute/directive/ngView
-[node-download]: http://nodejs.org/download/
-[$resource]: http://docs.angularjs.org/api/ngResource/service/$resource
-[$route]: http://docs.angularjs.org/api/ngRoute/service/$route
-[protractor]: https://github.com/angular/protractor
-[jasmine]: http://pivotal.github.com/jasmine/
-[karma]: http://karma-runner.github.io
