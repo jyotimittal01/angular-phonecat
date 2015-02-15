@@ -2,17 +2,15 @@ The following article orignally appears at [dev9 website] (http://www.dev9.com/a
 
 # Protractor: Using the Page Object Model
 
-## What is Protractor?
-
 Protractor is an end-to-end (e2e) test automation framework for AngularJS application. It is an open source Node.js program built on top of WebDriverJS originally developed by a team at Google. Test cases written in Protractor run in the browser simulating the actions of a real user. An e2e test written in Protractor makes sure your application behaves as expected.
 
 ## Challenge: Code Duplication
 
 There is always duplication in test cases. For instance login, find, and logout are clearly duplicated in the following two test cases:
 
-Test case 1: login to the website, find an item, add it to my wish list and logout.
+**Test case 1:** login to the website, find an item, add it to my wish list and logout.
 
-Test case 2: login to the website, find an item, add it to cart, purchase and logout.
+**Test case 2:** login to the website, find an item, add it to cart, purchase and logout.
 
 Duplicate test cases result in code duplication. An e2e test suite with code duplication is difficult to maintain and requires costly modifications. In this tutorial, we will implement a page object design best practice for Protractor to minimize code duplication, make tests more readable, reduce the cost of modification, and improve maintainability.  
 
@@ -32,7 +30,7 @@ In line with the page object design pattern best practice: the PhoneCat applicat
 
 The image below shows the separation of the test object (page object files) from the test script (spec files). The spec files under the spec folder contain only test scripts. The page object files under the page object folder contain page specific locators and functions.
 
-### Test Object (Page Object)
+### Test Object - Page Object
 
 The PhoneCat application have the phones list page and the phone details page. The following two page object files provide the locators and functions required to interact with these pages. 
 
@@ -87,7 +85,7 @@ Phones = {
 module.exports = Phones;
 ```
 
-*Listing 1: phones.page.js*
+**Listing 1: test/page_objects/phones.page.js**
 
 ```javascript
 PhonesDetails = {
@@ -121,9 +119,9 @@ PhonesDetails = {
 module.exports = PhonesDetails;
 ```
 
-*Listing 2: phone.details.page.js*
+**Listing 2: test/page_objects/phone.details.page.js**
 
-### Test Script (spec) 
+### Test Script - spec
 
 The test script can now make use of the page object files. All the functions required to interact with the page (the test object) are encapsulated in the page object and the test scripts are more readable and concise.
 
@@ -175,7 +173,7 @@ describe('Phone list view', function(){
 });
 ```
 
-*Listing 3: phones.spec.js*
+**Listing 3: test/spec/phones.spec.js**
 
 ```javascript
 describe('Phone detail view', function(){
@@ -208,7 +206,7 @@ describe('Phone detail view', function(){
 });
 ```
 
-*Listing 4: phone.details.spec.js*
+**Listing 4: test/spec/phone.details.spec.js**
 
 In conclusion, when a page object design pattern is properly used in a Protractor test automation, it will make an e2e test easy to maintain and reduce code duplication.
 
@@ -246,7 +244,6 @@ Refer to the AngularJS [tutorial site] (https://docs.angularjs.org/tutorial/step
         partial1.html
         partial2.html
       bower_components  --> 3rd party js libraries, including angular and jquery
-
     scripts/            --> handy scripts
       update-repo.sh       --> pull down the latest version of this repos
                                (BE CAREFUL THIS DELETES ALL CHANGES YOU HAVE MADE)
@@ -256,11 +253,11 @@ Refer to the AngularJS [tutorial site] (https://docs.angularjs.org/tutorial/step
       protractor-conf.js   --> config file for running e2e tests with Protractor
       e2e/
         page_objects/
-            phone.details.page.js   --> end-to-end page object
-            phones.page.js          --> end-to-end page object
+            phone.details.page.js   --> end-to-end page object (ADDED)
+            phones.page.js          --> end-to-end page object (ADDED)
         spec/
-            phone.details.spec.js   --> end-to-end spec
-            phones.spec.js          --> end-to-end spec
+            phone.details.spec.js   --> end-to-end spec (ADDED)
+            phones.spec.js          --> end-to-end spec (ADDED)
         scenarios.js       --> end-to-end specs
       unit/             --> unit level specs/tests
         controllersSpec.js --> specs for controllers
