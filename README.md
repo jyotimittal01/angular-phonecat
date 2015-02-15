@@ -1,3 +1,5 @@
+The following article orignally apears at [dev9 website] (http://www.dev9.com/article/2015/1/protractor-using-the-page-object-model) on January 15th 2015.
+
 # Protractor: Using the Page Object Model
 
 ## What is Protractor?
@@ -33,6 +35,59 @@ The image below shows the separation of the test object (page object files) from
 ## Test Object (Page Object)
 
 The PhoneCat application have the phones list page and the phone details page. The following two page object files provide the locators and functions required to interact with these pages. 
+
+```javascript
+Phones = {
+    elements: {
+        _search: function () {
+            return element(by.model('query'));
+        },
+
+        _sort: function(){
+            return element(by.model('orderProp'));
+        },
+
+        _phoneList: function(){
+            return element.all(by.repeater('phone in phones'));
+        },
+
+        _phoneNameColumn: function(){
+            return  element.all(by.repeater('phone in phones').column('phone.name'));
+        }
+    },
+
+    _phonesCount: function(){
+        return this.elements._phoneList().count();
+    },
+
+    searchFor: function(word){
+        this.elements._search().sendKeys(word);
+    },
+
+    clearSearch: function(){
+        this.elements._search().clear();
+    },
+
+    _getNames: function(){
+        return this.elements._phoneNameColumn().map(function(elem){
+            return elem.getText();
+        });
+    },
+
+    sortItBy: function(type){
+        this.elements._sort().element(by.css('option[value="' + type + '"]')).click();
+    },
+
+    selectFirstPhone : function(){
+        element.all(by.css('.phones li a')).first().click();
+        return require('./phone.details.page.js');
+    }
+};
+
+module.exports = Phones;
+
+
+```
 
 
 
